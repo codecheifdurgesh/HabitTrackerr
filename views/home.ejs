@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://kit.fontawesome.com/18370ca8b3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div>
+        <div class="tday">
+
+            <h1>HABIT TRACKER</h1>
+        </div>
+
+
+        <form action="/create-habit" method="post" class="createhabitc">
+            <input type="text" name="content" placeholder="Enter habit" id="habit-box">
+            <button type="submit" id="habit-save">ADD</button>
+        </form>
+
+        <% for (let i of habits) { %>
+            <div class="habitls">
+
+
+                <div class="habit-name">
+                    <%= i.content %>
+
+
+                        <form action="/delete-habit" method="post">
+                            <input type="text" name="deleteselected" value="<%= i.id %>" hidden>
+
+                            <button type="submit" style="background-color: transparent; border:none"><i
+                                    class="fa-solid fa-trash"></i></button>
+
+                        </form>
+                </div>
+
+
+
+                <% var dateOffset=(24*60*60*1000) * 1; var temp=new Date(); temp.setTime(temp.getTime() +dateOffset); %>
+                    <% for(let j=1;j<=7;j++) { %>
+
+
+                        <div class="habit-date">
+
+                            <% getCurrentDay=function(value){ if(value===0){ return "Sun" ; } else if(value===1){
+                                return "Mon" ; } else if(value===2){ return "Tue" ; } else if(value===3){ return "Wed" ;
+                                } else if(value===4){ return "Thu" ; } else if(value===5){ return "Fri" ; } else{
+                                return "Sat" ; } } %>
+
+                                <% var dateOffset=(24*60*60*1000) * 1; temp.setTime(temp.getTime() - dateOffset); %>
+                                    <p class="date-d">
+                                        <%= getCurrentDay(temp.getDay())%>,<%= temp.getDate()%>
+                                    </p>
+
+                                    <p>
+                                        <% let dates=i.dates; %>
+
+                                            <% let tempdate=temp.getDate()+"/"+temp.getMonth()+"/"+temp.getFullYear();
+                                                %>
+                                                <% let st="none" %>
+
+                                                    <% getCurrentStatus=function(value){
+                                                        dates.find(function(item,index){ if(item.date===value){
+                                                        st=item.complete; } }); return st; } %>
+
+                                                        <%= getCurrentStatus(tempdate)%>
+
+
+
+
+
+                                    </p>
+                                    <form action="/update-habit/<%= i.id%>" method="post">
+                                        <select name="status">
+                                            <option value="done">Done</option>
+                                            <option value="not done">Not Done</option>
+                                            <option value="none">None</option>
+                                        </select>
+                                        <input type="text" name="date"
+                                            value="<%= temp.getDate()%>/<%= temp.getMonth()%>/<%= temp.getFullYear() %>"
+                                            hidden>
+
+
+                                        <input type="submit" value="Save">
+                                    </form>
+                        </div>
+
+
+                        <% } %>
+
+
+            </div>
+
+
+            <% } %>
+
+
+    </div>
+</body>
+
+</html>

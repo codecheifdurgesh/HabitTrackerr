@@ -1,0 +1,82 @@
+body {
+    background-color: #B4F8C8;
+
+}
+
+.tday {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    background-image: linear-gradient(#FFAEBC, #B95C50);
+    border: 2px solid #D3B5E5;
+    box-shadow: 0px 0px 19px 16px #FBE7C6;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #A0E7E5;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+.createhabitc {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+    background-image: linear-gradient(#b2e0f9, #0c6b9f);
+    justify-content: space-evenly;
+    flex-direction: row;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 2px solid #D3B5E5;
+    box-shadow: 0px 0px 19px 16px #EFF1DB;
+    margin-bottom: 50px;
+
+}
+
+#habit-box {
+    width: 65%;
+    background-color: transparent;
+
+    border: none;
+    height: 40px;
+    font-size: 35px;
+}
+
+#habit-save {
+    width: 20%;
+    background-image: linear-gradient(#FFAEBC, #B95C50);
+    border: 2px solid #D3B5E5;
+    color: #A0E7E5;
+    font-size: 30px;
+}
+
+.habitls {
+    display: flex;
+    width: 90%;
+    background-color: #FBE698;
+    margin: 20px auto;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.habit-name {
+    background-color: #6DECE0;
+    color: #4120A9;
+    padding: 15px;
+}
+
+.habit-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -15px;
+    background-color: #F9BDC0;
+    margin: 10px;
+}

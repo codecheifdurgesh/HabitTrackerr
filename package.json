@@ -1,0 +1,19 @@
+{
+  "name": "habittracker",
+  "version": "1.0.0",
+  "description": "A node js application to track and keep a record of habits",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Durgesh chaubey",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.3",
+    "nodemon": "^2.0.20"
+  }
+}
